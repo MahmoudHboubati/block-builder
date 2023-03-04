@@ -15,7 +15,9 @@ class CvCardComponent extends Component {
       <div className="cv-card">
         <div className="cv-card-header">
           {card.title}
-          <small>{card.titleDescription}</small>
+          {card.titleDescription ? (
+            <small>{card.titleDescription}</small>
+          ) : null}
         </div>
         <div className="cv-card-header">{card.headerTitle}</div>
         <div className="cv-badge card-cv-badge">

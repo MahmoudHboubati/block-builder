@@ -1,5 +1,5 @@
 import CvCardComponent from "./components/cv-card";
-import { educations, experiences } from "./data";
+import { educations, experiences, skills } from "./data";
 
 function App() {
   return (

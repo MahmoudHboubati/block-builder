@@ -6,8 +6,7 @@ class CvCardListItemComponent extends Component {
     const badges = this.props.badges;
     return (
       <li className="cv-list-item">
-        <span className="cv-list-item-title">{item.title}</span>
-        {item.content}
+        <span className="cv-list-item-title">{item.title}</span> {item.content}
         <div className="cv-badge-container">{badges}</div>
       </li>
     );
