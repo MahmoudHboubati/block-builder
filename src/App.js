@@ -1,4 +1,5 @@
-import logo from "./logo.svg";
+import CvCardComponent from "./components/cv-card";
+import { educations, experiences } from "./data";
 
 function App() {
   return (
@@ -33,132 +34,10 @@ function App() {
         <section className="section section-body">
           <div className="side">
             <div className="side-header">Education</div>
-            <div className="cv-card">
-              <div className="cv-card-header">
-                SVU<small>Syrian Virtual University</small>
-              </div>
-              <div className="cv-card-header">Bachelor Information Technology</div>
-              <div className="cv-badge card-cv-badge">
-                01/2008 - 8/2012, Damascus Syria
-              </div>
-              <div className="cv-card-body">
-                <div className="cv-card-brief">
-                  Completed 4 years of computer technology and science plus PM
-                  involved content
-                </div>
-                <ul className="list">
-                  <li className="cv-list-item">
-                    <span className="cv-list-item-title">
-                      Dynamic Studying System
-                    </span>
-                    graduation project consist of two parts, a system which
-                    generate ASP MVC stack pages from database tables (including
-                    all the relations), using ASP MVC 3 and Oracle database, the
-                    other system is the school kind of system which is build
-                    using the first module to proof the development performance
-                    it provides.
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="cv-card">
-              <div className="cv-card-header">
-                Computer Science<small>Palestine Institute</small>
-              </div>
-              <div className="cv-card-header">Information Technology</div>
-              <div className="cv-badge card-cv-badge">
-                01/2005 - 12/2007, Damascus Syria
-              </div>
-              <div className="cv-card-body">
-                <div className="cv-card-brief">
-                  Completed 2 years of computer science
-                </div>
-                <ul className="list">
-                  <li className="cv-list-item">
-                    <span className="cv-list-item-title">Strategy Game</span>
-                    developed on "C++ Visual Studio .NET". Got 87% of the mark,
-                    the game depends on a gaming engines using DirectX and some
-                    other libraries to render the objects, textures, world and
-                    interact with sounds.
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <CvCardComponent card={educations[0]}></CvCardComponent>
+            <CvCardComponent card={educations[1]}></CvCardComponent>
             <div className="side-header">Experience</div>
-            <div className="cv-card">
-              <div className="cv-card-header">
-                MOCCAE
-                <small>
-                  Ministry Of Climate Change And Environment - Raqmiyat
-                </small>
-              </div>
-              <div className="cv-card-header card-header-small"></div>
-              <div className="cv-badge card-cv-badge">
-                07/2021 - Present, Dubai, UAE
-              </div>
-              <div className="cv-card-body">
-                <div className="cv-card-brief">
-                  I was employed to be in the decommissioning process for 130
-                  running services, migrate the data to the new system in the
-                  new database structure, and provide required dependencies from
-                  the old system for the new one
-                </div>
-                <ul className="list">
-                  <li className="cv-list-item">
-                    <span className="cv-list-item-title"> Digital Services </span>{" "}
-                    is a modern web application has independent attachment,
-                    workflow, fees configuration and a solid basement to deliver
-                    ministry services with less development effort
-                    <div className="cv-badge-container">
-                      <div className="cv-badge cv-badge-has-extend cv-badge-small">
-                        Angular 13
-                        <div className="cv-badge-extend">50%</div>
-                      </div>
-                      <div className="cv-badge cv-badge-has-extend cv-badge-small">
-                        .Net Core 5<div className="cv-badge-extend">50%</div>
-                      </div>
-                      <div className="cv-badge cv-badge-small">Entity Framework</div>
-                      <div className="cv-badge cv-badge-small">Clean Code</div>
-                      <div className="cv-badge cv-badge-small">Responsive Design</div>
-                      <div className="cv-badge cv-badge-small">
-                        Government Indicators
-                      </div>
-                    </div>
-                  </li>
-                  <li className="cv-list-item">
-                    <div className="cv-list-item-title">Data Migration</div>I
-                    created this solution and was managed by myself independent
-                    of other developers, the purpose of this project is to
-                    migrate data from old legacy web application to the new
-                    system
-                    <div className="cv-badge-container">
-                      <div className="cv-badge cv-badge-has-extend cv-badge-small">
-                        C# 100
-                        <div className="cv-badge-extend">50%</div>
-                      </div>
-                      <div className="cv-badge cv-badge-small">EDMX</div>
-                      <div className="cv-badge cv-badge-small">Api Controllers</div>
-                    </div>
-                  </li>
-                  <li className="cv-list-item">
-                    <span className="cv-list-item-title"> EServices </span> the
-                    legacy web application, the ministry used it for 5+ years
-                    and the plan is to decommission
-                    <div className="cv-badge-container">
-                      <div className="cv-badge cv-badge-has-extend cv-badge-small">
-                        ASP Forms
-                        <div className="cv-badge-extend">50%</div>
-                      </div>
-                      <div className="cv-badge cv-badge-has-extend cv-badge-small">
-                        SQL Server
-                        <div className="cv-badge-extend">50%</div>
-                      </div>
-                      <div className="cv-badge cv-badge-small">WCF</div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <CvCardComponent card={experiences[0]}></CvCardComponent>
             <div className="cv-card">
               <div className="cv-card-header">emaratech</div>
               <div className="cv-card-header">Sr. Software Engineer</div>
@@ -194,7 +73,9 @@ function App() {
                         <div className="cv-badge-extend">20%</div>
                       </div>
                       <div className="cv-badge cv-badge-small">JIRA</div>
-                      <div className="cv-badge cv-badge-small">Dashboard Design</div>
+                      <div className="cv-badge cv-badge-small">
+                        Dashboard Design
+                      </div>
                     </div>
                   </li>
                   <li className="cv-list-item">
@@ -232,19 +113,27 @@ function App() {
                     </div>
                   </li>
                   <li className="cv-list-item">
-                    <span className="cv-list-item-title">Integrated Systems</span>
+                    <span className="cv-list-item-title">
+                      Integrated Systems
+                    </span>
                     There were integrations with other system, managed by other
                     teams in emaratech, like Noqudi payment gateway, application
                     that is used for initial approvals called IQCS, also one
                     more which called Vision Core where final approvals are
                     implemented for the internal officers
                     <div className="cv-badge-container">
-                      <div className="cv-badge cv-badge-small">Payment Gateway</div>
-                      <div className="cv-badge cv-badge-small">Roles Engine</div>
+                      <div className="cv-badge cv-badge-small">
+                        Payment Gateway
+                      </div>
+                      <div className="cv-badge cv-badge-small">
+                        Roles Engine
+                      </div>
                     </div>
                   </li>
                   <li className="cv-list-item">
-                    <span className="cv-list-item-title">Integration Testing</span>
+                    <span className="cv-list-item-title">
+                      Integration Testing
+                    </span>
                     the project target is to get more confident on releases,
                     specflow with .net got evaluated in my team, I was
                     responsible to write the useful APIs of the platforms in
@@ -281,7 +170,9 @@ function App() {
                 <div className="cv-card-brief">Achievements/Tasks</div>
                 <ul className="list">
                   <li className="cv-list-item">
-                    <span className="cv-list-item-title">Service Catalogue</span>
+                    <span className="cv-list-item-title">
+                      Service Catalogue
+                    </span>
                     which is a part of the portal system of the Municipality web
                     portal, where customers find the services, launching a
                     service on the portal had a long process business workflow
@@ -299,9 +190,9 @@ function App() {
                     </div>
                   </li>
                   <li className="cv-list-item">
-                    <span className="cv-list-item-title">Waste Management</span>a
-                    system was implemented to consume APIs to dump construction
-                    waste and it uses RFID hardware integration
+                    <span className="cv-list-item-title">Waste Management</span>
+                    a system was implemented to consume APIs to dump
+                    construction waste and it uses RFID hardware integration
                     <div className="cv-badge-container">
                       <div className="cv-badge cv-badge-has-extend cv-badge-small">
                         ASP MVC
@@ -408,7 +299,9 @@ function App() {
                     </div>
                   </li>
                   <li className="cv-list-item">
-                    <span className="cv-list-item-title">Naga System WINDOWS</span>
+                    <span className="cv-list-item-title">
+                      Naga System WINDOWS
+                    </span>
                     a windows application allows engineers, planners to follow
                     up, manage, monitor, document the process of project status
                     with clients and other parties (providers, suppliers,
@@ -429,8 +322,10 @@ function App() {
                     </div>
                   </li>
                   <li className="cv-list-item">
-                    <span className="cv-list-item-title">Daily Time Record </span>a
-                    windows applications run on all NAGA employees where they
+                    <span className="cv-list-item-title">
+                      Daily Time Record{" "}
+                    </span>
+                    a windows applications run on all NAGA employees where they
                     can record the daily tasks and sort it by project which
                     allows the system to generate reports about the project
                     cost, the application is integrated with fingerprint
