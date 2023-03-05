@@ -1,7 +1,11 @@
 import CvCardComponent from "./components/cv-card";
-import { educations, experiences, skills } from "./data";
+import { CvCardMapper } from "./mappers/CvCardMapper";
 
 function App() {
+  const mapper = new CvCardMapper();
+  const educations = mapper.mapEducations();
+  const experiences = mapper.mapExperiences();
+
   return (
     <>
       <nav className="nav-bar">

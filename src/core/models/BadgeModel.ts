@@ -1,7 +1,8 @@
 import { Key } from "react";
-import { BaseModel } from "./BaseModel";
+import { BaseModel, CvContentTypeEnum, ICvContent } from "./BaseModel";
 
 export class BadgeModel extends BaseModel {
+  type: CvContentTypeEnum.Badge;
   text: String;
   outline?: String;
 
@@ -12,28 +13,44 @@ export class CvCardBodyListItemModel extends BaseModel {
   title: string;
   content: string;
   badges?: BadgeModel[];
+  type: CvContentTypeEnum.CardBodyListItem;
 
   k: Key;
 }
 
-export class CvCardBodyListModel {}
+export class CvCardBodyListModel extends BaseModel {
+  items: CvCardBodyListItemModel[];
+
+  type: CvContentTypeEnum.CardBodyList;
+}
 
 export class CvCardBodyModel extends BaseModel {
+  type: CvContentTypeEnum.CardBody;
   title?: string;
   brief: string;
-  list: CvCardBodyListItemModel[];
+
   separator?: CvCardBodySeparatorEnum;
 
-  content?: any;
+  content?: BaseModel[];
   k: Key;
 }
 
-export class CvCardModel {
+export class CvCardModel extends BaseModel {
+  type: CvContentTypeEnum.Card;
   title: string;
   titleDescription?: string;
-  headerTitle: string;
+  headerTitle?: string;
   headerBadges?: BadgeModel[];
   bodies: CvCardBodyModel[];
+}
+
+export class CvProgressModel extends BaseModel {
+  title: string;
+  value: number;
+  color: string;
+  type: CvContentTypeEnum.Progress;
+
+  k: Key;
 }
 
 export enum CvCardBodySeparatorEnum {

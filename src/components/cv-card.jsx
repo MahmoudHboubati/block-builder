@@ -19,10 +19,14 @@ class CvCardComponent extends Component {
             <small>{card.titleDescription}</small>
           ) : null}
         </div>
-        <div className="cv-card-header">{card.headerTitle}</div>
-        <div className="cv-badge card-cv-badge">
-          {card.headerBadges[0].content}
-        </div>
+        {card.headerTitle ? (
+          <div className="cv-card-header">{card.headerTitle}</div>
+        ) : null}
+        {card.headerBadges ? (
+          <div className="cv-badge card-cv-badge">
+            {card.headerBadges[0].text}
+          </div>
+        ) : null}
         {bodiesTags}
       </div>
     );

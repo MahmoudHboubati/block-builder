@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { CvCardBodyModel } from "../core/models/BadgeModel";
+import {
+  CvCardBodyListItemModel,
+  CvCardBodyListModel,
+  CvCardBodyModel,
+  CvProgressModel,
+} from "../core/models/BadgeModel";
 import CvBadgeComponent from "./cv-badge";
+import CvCardListComponent from "./cv-card-list";
 import CvCardListItemComponent from "./cv-card-list-item";
+import CvProgress from "./cv-progress";
 
 interface Props {
   body: CvCardBodyModel;
@@ -16,30 +23,38 @@ class CvCardBodyComponent extends Component<Props, State> {
 
   render() {
     const body = this.props.body;
-    const list = body.list;
 
-    const listItems = list.map((item) => {
-      const badges = item.badges;
+    const isListItems =
+      body.content instanceof Array &&
+      body.content.length > 0 &&
+      body.content[0] instanceof CvCardBodyListModel;
 
-      const badgesItems = badges?.map((badge) => {
-        return (
-          <CvBadgeComponent key={badge.k} badge={badge}></CvBadgeComponent>
-        );
+    const isProgressItems =
+      body.content instanceof Array &&
+      body.content.length > 0 &&
+      body.content[0] instanceof CvProgressModel;
+
+    let content: JSX.Element[] = null;
+
+    if (isListItems) {
+      content = [
+        <CvCardListComponent
+          key={1}
+          list={body.content as CvCardBodyListModel[]}
+        ></CvCardListComponent>,
+      ];
+    } else if (isProgressItems) {
+      const list = body.content as CvProgressModel[];
+
+      content = list.map((item) => {
+        return <CvProgress key={item.k} progress={item}></CvProgress>;
       });
-
-      return (
-        <CvCardListItemComponent
-          key={item.title}
-          item={item}
-          badges={badgesItems}
-        ></CvCardListItemComponent>
-      );
-    });
+    }
 
     return (
       <div className="cv-card-body">
-        <div className="cv-card-brief">{body.brief}</div>
-        <ul className="list">{listItems}</ul>
+        {body.brief ? <div className="cv-card-brief">{body.brief}</div> : null}
+        {content}
       </div>
     );
   }
